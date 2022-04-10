@@ -2,7 +2,7 @@ from model import *
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 from funcoes import *
- 
+
 
 def menu_novo():
 	while 1:
@@ -11,7 +11,7 @@ def menu_novo():
 		print ("2 - Nacionalidade")
 		print ("3 - Categoria")
 		print ("4 - Tag")
-		print ("5 - Ponto")	
+		print ("5 - Ponto")
 		print ("\ - Voltar")
 		menu2 = input(">>> ")
 		if menu2=="1":
@@ -27,7 +27,7 @@ def menu_novo():
 					ficheiro=input("Ficheiro de input: ")
 					novos_ficheiro(ficheiro)
 				if menu3=="\\":
-					break			
+					break
 		if menu2=="2":
 			input_nacionalidade()
 		if menu2=="3":
@@ -45,7 +45,7 @@ def menu_alterar():
 		print ("2 - Nacionalidade")
 		print ("3 - Categoria")
 		print ("4 - Tag")
-		print ("5 - Ponto")	
+		print ("5 - Ponto")
 		print ("\ - Voltar")
 		menu2 = input(">>> ")
 		if menu2=="1":
@@ -62,7 +62,7 @@ def menu_alterar():
 				print ("6 - Nacionalidade")
 				print ("7 - Categoria")
 				print ("8 - Tags")
-				print ("9 - Pontos")	
+				print ("9 - Pontos")
 				print ("\ - Voltar")
 				menu3 = input(">>> ")
 				if menu3 =="1":
@@ -136,7 +136,7 @@ def menu_alterar():
 							print ("Tag",tag,"adicionada ao evento", ev)
 						else:
 							print ("W: Evento id: ",z," nao existe")
-					
+
 				if menu3=="\\":
 					break
 		if menu2=="5":
@@ -173,9 +173,9 @@ def menu_mostrar():
 		print ("3 - Categoria")
 		print ("4 - Tag")
 		print ("5 - Ponto")
-		print ("6 - Tudo")	
+		print ("6 - Tudo")
 		print ("\ - Voltar")
-		
+
 		menu2 = input(">>> ")
 		if menu2=="1":
 			mostrar_eventos();
@@ -197,7 +197,8 @@ def menu_apagar():
 		print ("1 - Evento")
 		print ("2 - Nacionalidade")
 		print ("3 - Categoria")
-		print ("4 - Tudo"	)
+		print ("4 - Tag")
+		print ("5 - Tudo"	)
 		print ("\ - Voltar")
 		menu2 = input(">>> ")
 		if menu2=="1":
@@ -242,9 +243,23 @@ def menu_apagar():
 				if confirmacao1()==True:
 					for evv in ev:
 						session.delete(evv)
-		if menu2=="4":
+		if menu2 == "4":
+			list_tags()
+			x=input_list()
+			ev=[]
+			for i in x:
+				if session.query(Tag).filter(Tag.id == i).one() != None:
+					ev.append(session.query(Tag).filter(Tag.id == i).one())
+				else:
+					print ("W - elemento",i,"nao existe")
+			if ev:
+				print (ev)
+				if confirmacao1()==True:
+					for evv in ev:
+						session.delete(evv)
+		if menu2=="5":
 			if confirmacao1()==True:
-				limpa_tudo()	
+				limpa_tudo()
 		if menu2 == "\\":
 			break
 
@@ -255,7 +270,7 @@ while 1:
 	print ("1 - Mostrar")
 	print ("2 - Novo")
 	print ("3 - Alterar")
-	print ("4 - Guardar DB")	
+	print ("4 - Guardar DB")
 	print ("5 - Apagar")
 	print ("q - Sair")
 
@@ -273,4 +288,3 @@ while 1:
 		print ("DB saved")
 	if menu1=="5":
 		menu_apagar()
-

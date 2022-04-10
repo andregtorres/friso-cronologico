@@ -129,7 +129,7 @@ def bloco(linha,n,m,split,nome,cor):
         rectangulo(x+b,y+b,dx-(2*b),dy-(b),cor[0],None)
         rectangulot(x+b,y+b,dxlinha-(2*b),dy-(b),cor[1],None,nome,-1,alinhamentoy, cor[2])
     else:
-        rectangulot(x+b,y+b,dx-(2*b),dy-(b),cor[0],None,nome,-1,alinhamentoy, cor[2])   
+        rectangulot(x+b,y+b,dx-(2*b),dy-(b),cor[0],None,nome,-1,alinhamentoy, cor[2])
 def legenda(tabela):
     draw.text((margemx,height-legenday+h/4),"Legenda:","Black",font)
     for elemento in tabela:
@@ -236,7 +236,7 @@ def atribuicao_cores2(lista):
             for yy in y:
                 j=(yy.id*2+len(palete)-2) % (len(palete))
                 tabela.append([yy,j])
-            return tabela, user   
+            return tabela, user
         else:
             print ("Entrada invalida")
     for yy in y:
@@ -246,7 +246,7 @@ def atribuicao_cores2(lista):
 def atribuicao_cores3(evento,tabela_user):
     tabela=tabela_user[0]
     user=tabela_user[1]
-    if user == "1": 
+    if user == "1":
         y=session.query(Categoria).all()
         for yy in y:
             if evento.categoria==yy:
@@ -266,7 +266,7 @@ def atribuicao_cores3(evento,tabela_user):
             if evento.categoria==yy:
                 for x in tabela:
                     if x[0]==yy:
-                        return x[1]      
+                        return x[1]
 def gerar_palete():
     scale=1
     fontsize=15*scale
@@ -544,7 +544,7 @@ n_linhas=l_max
 width, height = l_sec*n_sec + margemx*2 , (6+n_linhas)*h + margemy*2 + legenday
 output = "friso.png"
 
-img = Image.new( 'RGB', (width,height), "white") 
+img = Image.new( 'RGB', (width,height), "white")
 
 draw = ImageDraw.Draw(img)
 

@@ -2,7 +2,7 @@ from model import *
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
- 
+
 engine = create_engine('sqlite:///DB_Friso.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
@@ -82,7 +82,7 @@ def confirmacao1():
 				return False
 			if confirmar== "y":
 				return True
-def confirmacao(new):	
+def confirmacao(new):
 	while 1:
 			confirmar=input("Confirmar? (y / n)\n")
 			if confirmar == "n":
@@ -220,7 +220,7 @@ def select_tag():
 				tags.append(session.query(Tag).filter(Tag.id == i).one())
 				print ("Tag",session.query(Tag).filter(Tag.id == i).one(),"adicionada com sucesso")
 			else:
-				print ("W - elemento",i,"nao existe")	
+				print ("W - elemento",i,"nao existe")
 	return tags
 def select_ponto():
 	print ("Pontos:")
@@ -254,7 +254,7 @@ def input_evento():
 	parametros[2]=input_int("m: ")
 	new=Evento(nome= parametros[0], n=parametros[1], m=parametros[2])
 	new.nacionalidade=select_nacionalidade()
-	new.categoria= select_categoria()	
+	new.categoria= select_categoria()
 	print ("#"*20)
 	print (new)
 	print (new.nacionalidade)
@@ -290,6 +290,16 @@ def novos_ficheiro(fich):
 					new.categoria=cat
 			else:
 				new.categoria=session.query(Categoria).filter_by(nome=evento[4]).first()
+			#tags
+			if len(evento)>5:
+				if not session.query(Tag).filter_by(nome=evento[5]).first():
+					print ("Tag:",evento[5],"nao existe. Criar?")
+					if confirmacao1()==True:
+						tag=Tag(nome=evento[5])
+						new.tags.append(tag)
+				else:
+					tag=session.query(Tag).filter_by(nome=evento[5]).first()
+					new.tags.append(tag)
 			session.add(new)
 			print("{} adicionado com sucesso".format(new))
 		else:
