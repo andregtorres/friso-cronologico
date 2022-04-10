@@ -1,0 +1,24 @@
+Luís XVI (Capeto);1754;1793;FR;Política;revFr
+Voltair;1696;1778;FR;Filosofia;revFr
+Montesquieu;1689;1755;FR;Filosofia;revFr
+Jacques Necker;1732;1804;FR;Política;revFr
+Conde de Artois (Carlos X);1757;1836;FR;Política;revFr
+Marquês de La Fayette;1757;1834;FR;Política;revFr
+Jean-Paul Marat;1743;1793;FR;Política;revFr
+Jacques Hébert;1757;1794;FR;Política;revFr
+Maria Antonieta;1755;1793;FR;Política;revFr
+Georges Jacques Danton;1759;1794;FR;Política;revFr
+Maximilien de Robespierre;1758;1794;FR;Política;revFr
+Jacques Roux;1752;1794;FR;Política;revFr
+Charlotte Corday;1768;1793;FR;Política;revFr
+Antoine Lavoisier;1743;1794;FR;Química;revFr
+Jacques Pierre Brissot;1754;1793;FR;Política;revFr
+Jean-Marie Roland;1734;1793;FR;Política;revFr
+Napoleão Bonaparte;1769;1821;FR;Política;revFr
+Leopoldo II;1747;1792;AT;Política;revFr
+Francisco II;1768;1835;AT;Política;revFr
+Frederico Guilherme III;1770;1840;DE;Política;revFr
+William Pitt;1759;1806;UK;Política;revFr
+Charles Maurice de Talleyrand;1754;1838;FR;Política;revFr
+Charles François Dumouriez;1739;1823;FR;Política;revFr
+Camille Desmoulins;1760;1794;FR;Política;revFr
